@@ -1,52 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>CryptoPro Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://s3.tradingview.com/tv.js"></script>
 </head>
+
 <body>
-    <nav class="navbar">
+
+<header class="navbar">
   <h2>⚡ CryptoPro</h2>
-  <div>
+  <nav>
+    <a href="#">Dashboard</a>
+    <a href="#">Market</a>
+    <a href="#">Signals</a>
+  </nav>
+</header>
 
-    <a href="#hero">Home</a>
-    <a href="#market">Market</a>
-    <a href="#chart">Chart</a>
-    <a href="#signals">Signals</a>
-  </div>
-</nav>
+<main class="container">
 
-<section id="hero" class="hero">
-  <h1>Trade Smart. Trade Fast.</h1>
-  <p>Live crypto & gold dashboard</p>
-</section>
+  <!-- LEFT PANEL -->
+  <section class="panel left">
 
-<section id="chart" class="section">
-  <h2>Live Chart</h2>
-  <canvas id="chartCanvas"></canvas>
+    <div class="card">
+      <h3>📊 Live Market</h3>
+      <div id="priceBox">Loading...</div>
+    </div>
 
-  <section id="signals" class="section">
-  <h2>Trading Signals</h2>
-  <div id="signalsBox"></div>
-  <button onclick="generateSignals()">Generate Signals</button>
-</section>
+    <div class="card">
+      <h3>📡 Signals</h3>
+      <div id="signalsBox">No signals yet</div>
+      <button onclick="generateSignals()">Generate Signal</button>
+    </div>
 
-<section class="section gallery">
-  <h2>Trading Lifestyle</h2>
-  <div class="images">
-    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3">
-    <img src="https://images.unsplash.com/photo-1640161704729-cbe966a08476">
-    <img src="https://images.unsplash.com/photo-1621761191319-c6fb62004040">
-  </div>
-</section>
+  </section>
+
+  <!-- RIGHT PANEL -->
+  <section class="panel right">
+
+    <div class="card big">
+      <h3>📈 Trading Chart</h3>
+      <div id="tradingview_chart"></div>
+    </div>
+
+  </section>
+
+</main>
 
 <footer>
-  <h3>CryptoPro Dashboard</h3>
+  <p>© 2026 CryptoPro Dashboard</p>
 </footer>
 
 <script src="java.js"></script>
-</body>
 
+<script>
+new TradingView.widget({
+  "width": "100%",
+  "height": 500,
+  "symbol": "OANDA:XAUUSD",
+  "interval": "15",
+  "theme": "dark",
+  "style": "1",
+  "container_id": "tradingview_chart"
+});
+</script>
+
+</body>
 </html>
